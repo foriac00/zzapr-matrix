@@ -17,6 +17,7 @@ public class MatrixPractice {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //comment from bazantm
         
         int rowA, colA, rowB, colB;
         Random r = new Random(); 
