@@ -34,50 +34,13 @@ public class MatrixMain {
         colB = enter.nextInt();
         
         Matrix matrixA = new Matrix("Matrix A", rowA, colA);
-        matrixA.generateRandomElements(5, 20);
+        matrixA.generateRandomElements(-10, 10);
+        matrixA.swapDiagonalPrincipal();
         System.out.println(matrixA);
         
-//        int[][] matrixB = new int[rowB][colB];
-//        
-//        //INICIALITATION MATRIX A
-//        for(int i=0; i<matrixA.length; i++){
-//            for(int j=0; j<matrixA[i].length; j++){
-//                matrixA[i][j] = (int)(r.nextInt(21)-10);
-//            }
-//        }
-//        //INICIALITATION MATRIX B
-//        for(int i=0; i<matrixB.length; i++){
-//            for(int j=0; j<matrixB[i].length; j++){
-//                matrixB[i][j] = (int)(r.nextInt(21)-10);
-//            }
-//        }
-//        
-//        PrintMatrix(matrixA, matrixB);
-//        if(rowA == rowB && colA == colB){
-//            System.out.println("The matrix dimensions are the same, so we can swap diagonals");
-//            SwapDiagonals(matrixA, matrixB);
-//        }
-//        else{
-//            System.out.println("We can not swap diagonals because the matrix have not the same dimensions");
-//        }
-//    }
-//    //METHOD FOR PRINT THE MATRIX
-//    public static void PrintMatrix(int matrixA[][], int matrixB[][]){
-//        //Matrix A
-//        System.out.println("Matrix A");
-//        for(int i=0; i<matrixA.length; i++){
-//            for(int j=0; j<matrixA[i].length; j++){
-//                System.out.print(matrixA[i][j] + " ");            
-//            }
-//            System.out.println();
-//        }
-//        //Matrix B
-//        System.out.println("Matrix B");
-//        for(int i=0; i<matrixB.length; i++){
-//            for(int j=0; j<matrixB[i].length; j++){
-//                System.out.print(matrixB[i][j] + " ");            
-//            }
-//            System.out.println();
-//        }
+        Matrix matrixB = new Matrix("Matrix B", rowB, colB);
+        matrixB.generateRandomElements(-10, 10);
+        matrixB.swapDiagonalSecondary();
+        System.out.println(matrixB);
     }
 }
