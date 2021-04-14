@@ -28,24 +28,57 @@ public class Matrix {
             }
         }
     }
-    public void swapDiagonalPrincipal(){
-        int diagonal[] = new int [elements.length];
-        for(int i=0; i<elements.length; i++){
-            for(int j=0; j<elements[i].length; j++){
-                if(i==j){
-                    for(int k=0; k<diagonal.length; k++)
-                    elements[i][j] = diagonal[k];
-                }
-            }
-        }
+    public int getMinofRowsColumns(){
+        return Math.min(elements.length, elements[0].length);
     }
-    public void swapDiagonalSecondary(){
+    public int[] getPrincipalDiagonal(){
+        int minRowsCol = getMinofRowsColumns();
+        int diagonal[] = new int [minRowsCol];
+        
+        for(int i=0; i<minRowsCol; i++){
+            diagonal[i] = elements[i][i];
+        }
+        
+        return diagonal;
+//        for(int i=0; i<elements.length; i++){
+//            for(int j=0; j<elements[i].length; j++){
+//                if(i==j){
+//                    for(int k=0; k<diagonal.length; k++)
+//                    elements[i][j] = diagonal[k];
+//                }
+//            }
+//        }
+    }
+    public int [] getSecondaryDiagonal(){
         int diagonal[] = new int [elements.length];
+        int minRowsCol = getMinofRowsColumns();
+        
         for(int i=0; i<elements.length; i++){
             for(int j=0; j<elements[i].length; j++){
                 if(i+j == elements.length-1){
-                    for(int k=0; k<diagonal.length; k++)
-                    elements[i][j] = diagonal[k];
+                    diagonal[i] = elements[i][j];
+                }
+            }
+        }
+            
+        return diagonal;
+    }
+    public void swapPrincipalDiagonal(){
+        int minRowsCol = getMinofRowsColumns();
+        int [] secondary_diagonal = getSecondaryDiagonal();
+        
+        for(int i=0; i<minRowsCol; i++){
+            elements[i][i] = secondary_diagonal[i];
+        }
+    }
+    public void swapSecondaryDiagonal(){
+        int minRowsCol = getMinofRowsColumns();
+        int [] principal_diagonal = getPrincipalDiagonal();
+        
+        for(int i=0; i<elements.length; i++){
+            for(int j=0; j<elements[i].length; j++){
+                if(i+j == elements.length-1){
+                    elements[i][i] = principal_diagonal[i];
                 }
             }
         }
