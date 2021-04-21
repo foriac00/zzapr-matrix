@@ -63,27 +63,38 @@ public class Matrix {
             
         return diagonal;
     }
-    public void swapPrincipalDiagonal(){
-        int minRowsCol = getMinofRowsColumns();
-        int [] secondary_diagonal = getSecondaryDiagonal();
+    public void swapPrincipalDiagonalWithSecondary(Matrix anotherMatrix){
+        int[] mainDiagActualMatrix = getPrincipalDiagonal();
+        int[] secondaryDiagAnotherMatrix = anotherMatrix.getSecondaryDiagonal();
         
-        for(int i=0; i<minRowsCol; i++){
-            elements[i][i] = secondary_diagonal[i];
+        int columnMatA = 0;
+        int columnMatB = elements[0].length;
+        
+        for(int i=0; i<secondaryDiagAnotherMatrix.length; i++){
+            int tmp = elements[i][columnMatA];
+            elements[i][columnMatA] = anotherMatrix.elements[i][columnMatB];
+            anotherMatrix.elements[i][columnMatB] = tmp;
+        
+            columnMatA++;
+            columnMatB--;
         }
     }
-    public void swapSecondaryDiagonal(){
-        int minRowsCol = getMinofRowsColumns();
-        int [] principal_diagonal = getPrincipalDiagonal();
+    public void swapSecondaryDiagonalWithPrincipal(Matrix anotherMatrix){
+        int[] mainDiagActualMatrix = getPrincipalDiagonal();
+        int[] secondaryDiagAnotherMatrix = anotherMatrix.getSecondaryDiagonal();
         
-        for(int i=0; i<elements.length; i++){
-            for(int j=0; j<elements[i].length; j++){
-                if(i+j == elements.length-1){
-                    elements[i][i] = principal_diagonal[i];
-                }
-            }
+        int columnMatA = 0;
+        int columnMatB = elements[0].length;
+        
+        for(int i=0; i<secondaryDiagAnotherMatrix.length; i++){
+            int tmp = elements[i][columnMatB];
+            elements[i][columnMatB] = anotherMatrix.elements[i][columnMatA];
+            anotherMatrix.elements[i][columnMatA] = tmp;
+        
+            columnMatA++;
+            columnMatB--;
         }
     }
-
     @Override
     public String toString() {
         String text = "";

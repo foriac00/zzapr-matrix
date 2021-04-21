@@ -39,13 +39,22 @@ public class MatrixMain {
         matrixA.getPrincipalDiagonal();
         System.out.println(matrixA);
         System.out.println("Principal Diagonal: " + Arrays.toString(matrixA.getPrincipalDiagonal()));
-        matrixA.swapPrincipalDiagonal();
 
         Matrix matrixB = new Matrix("Original Matrix B", rowB, colB);
         matrixB.generateRandomElements(-10, 10);
         matrixB.getSecondaryDiagonal();
         System.out.println(matrixB);
         System.out.println("Secondary Diagonal: " + Arrays.toString(matrixB.getSecondaryDiagonal()));
-        matrixB.swapSecondaryDiagonal();
+        
+        if(rowA==rowB && colA==colB){
+            matrixA.swapPrincipalDiagonalWithSecondary(matrixB);
+            matrixB.swapSecondaryDiagonalWithPrincipal(matrixA);
+        }
+        else{
+            System.out.println("The dimensions of the matrix are not the same so we can not change the diagonals");
+        }
+        //PRINT THE MATRIX CHANGED
+        System.out.println(matrixA);
+        System.out.println(matrixB);
     }
 }
