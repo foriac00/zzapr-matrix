@@ -67,55 +67,37 @@ public class Matrix {
         return diagonal;
     }
 
-    public void swapPrincipalDiagonalWithSecondary(Matrix anotherMatrix) {
-        int[] mainDiagActualMatrix = getPrincipalDiagonal();
-        int[] secondaryDiagAnotherMatrix = anotherMatrix.getSecondaryDiagonal();
+    public void swapDiagonals(Matrix m) {
+        int[] secondaryDiagAnotherMatrix = m.getSecondaryDiagonal();
 
         int columnMatA = 0;
         int columnMatB = elements[0].length;
 
         for (int i = 0; i < secondaryDiagAnotherMatrix.length; i++) {
             int tmp = elements[i][columnMatA];
-            elements[i][columnMatA] = anotherMatrix.elements[i][columnMatB];
-            anotherMatrix.elements[i][columnMatB] = tmp;
+            elements[i][columnMatA] = m.elements[i][columnMatB];
+            m.elements[i][columnMatB] = tmp;
 
             columnMatA++;
             columnMatB--;
         }
     }
-    
+
     private boolean haveTheSameNumberOfRows(int numberOfRows) {
         return elements.length == numberOfRows;
     }
-    
+
     private boolean haveTheSameNumberOfColumns(int numberOfColumns) {
         return elements[0].length == numberOfColumns;
     }
-    
+
     private boolean haveTheSameDimensions(Matrix m) {
-        if (haveTheSameNumberOfRows(m.elements.length) &&
-                haveTheSameNumberOfColumns(m.elements[0].length)) {
+        if (haveTheSameNumberOfRows(m.elements.length)
+                && haveTheSameNumberOfColumns(m.elements[0].length)) {
             return true;
         }
-        
+
         return false;
-    }
-
-    public void swapSecondaryDiagonalWithPrincipal(Matrix anotherMatrix) {
-        int[] mainDiagActualMatrix = getPrincipalDiagonal();
-        int[] secondaryDiagAnotherMatrix = anotherMatrix.getSecondaryDiagonal();
-
-        int columnMatA = 0;
-        int columnMatB = elements[0].length;
-
-        for (int i = 0; i < secondaryDiagAnotherMatrix.length; i++) {
-            int tmp = elements[i][columnMatB];
-            elements[i][columnMatB] = anotherMatrix.elements[i][columnMatA];
-            anotherMatrix.elements[i][columnMatA] = tmp;
-
-            columnMatA++;
-            columnMatB--;
-        }
     }
 
     @Override

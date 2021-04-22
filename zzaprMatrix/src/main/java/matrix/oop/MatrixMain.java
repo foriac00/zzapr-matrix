@@ -48,7 +48,7 @@ public class MatrixMain {
         System.out.println("Secondary Diagonal: " + Arrays.toString(matrixB.getSecondaryDiagonal()));
 
         if (rowA == rowB && colA == colB) {
-            matrixA.swapPrincipalDiagonalWithSecondary(matrixB);
+            matrixA.swapDiagonals(matrixB);
             matrixB.swapSecondaryDiagonalWithPrincipal(matrixA);
         } else {
             System.out.println("The dimensions of the matrix are not the same so we can not change the diagonals");
