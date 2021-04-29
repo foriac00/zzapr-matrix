@@ -21,7 +21,7 @@ public class Matrix {
     }
 
     public void generateRandomElements(int a, int b) {
-        Random r = new Random(0);
+        Random r = new Random();
         for (int i = 0; i < elements.length; i++) {
             for (int j = 0; j < elements[i].length; j++) {
                 elements[i][j] = (int) (r.nextInt(b - a + 1) - b);
@@ -58,7 +58,7 @@ public class Matrix {
 
         for (int i = 0; i < elements.length; i++) {
             for (int j = 0; j < elements[0].length; j++) {
-                if (i + j == minRowsCol - 1) {
+                if (i + j == elements.length - 1) {
                     diagonal[i] = elements[i][j];
                 }
             }
@@ -66,12 +66,15 @@ public class Matrix {
 
         return diagonal;
     }
+    int getIndexOfLastColumn(){
+        return elements[0].length - 1;
+    }
 
     public void swapDiagonals(Matrix m) {
         int[] secondaryDiagAnotherMatrix = m.getSecondaryDiagonal();
 
         int columnMatA = 0;
-        int columnMatB = elements[0].length;
+        int columnMatB = getIndexOfLastColumn();
 
         for (int i = 0; i < secondaryDiagAnotherMatrix.length; i++) {
             int tmp = elements[i][columnMatA];
