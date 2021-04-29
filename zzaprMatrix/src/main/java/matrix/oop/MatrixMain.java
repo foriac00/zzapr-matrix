@@ -48,6 +48,7 @@ public class MatrixMain {
         System.out.println("Secondary Diagonal: " + Arrays.toString(matrixB.getSecondaryDiagonal()));
 
         matrixA.swapDiagonals(matrixB);
+        System.out.println(matrixA);
        
     }
 }

@@ -53,12 +53,12 @@ public class Matrix {
     }
 
     public int[] getSecondaryDiagonal() {
-        int diagonal[] = new int[elements.length];
         int minRowsCol = getMinofRowsColumns();
+        int diagonal[] = new int[minRowsCol];
 
         for (int i = 0; i < elements.length; i++) {
-            for (int j = 0; j < elements[i].length; j++) {
-                if (i + j == elements.length - 1) {
+            for (int j = 0; j < elements[0].length; j++) {
+                if (i + j == minRowsCol - 1) {
                     diagonal[i] = elements[i][j];
                 }
             }
