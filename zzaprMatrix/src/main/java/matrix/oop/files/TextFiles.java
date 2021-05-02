@@ -13,24 +13,15 @@ import matrix.oop.Matrix;
 
 public class TextFiles {
     
-    public static void saveMatrix(Matrix m, String fileName) throws URISyntaxException {
-               
-        Path dataDir = Paths.get("data");
-        
-        if (!Files.exists(dataDir)) {
-            try {
-                Files.createDirectories(dataDir);
-            } catch (IOException ex) {
-                Logger.getLogger(TextFiles.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        Path file = dataDir.resolve(fileName);
-        
-                
-        try (BufferedWriter bw = Files.newBufferedWriter(file)) {
+public static void saveMatrix(Matrix m, String fileName) {
+        try {
+            Path dataDir = Files.createDirectory(Paths.get("data"));
+            Path file = dataDir.resolve(fileName);
+            BufferedWriter bw = Files.newBufferedWriter(file);
             bw.write("aaa, bbb, ccc");
+            bw.close();
         } catch (IOException ex) {
-            System.err.println("IO exception");
+            System.err.println("IO exception");;
         }
     }
 }
