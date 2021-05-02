@@ -2,6 +2,7 @@ package matrix.oop;
 
 import java.util.Random;
 
+
 public class Matrix {
 
     private String name;
@@ -58,7 +59,7 @@ public class Matrix {
 
         for (int i = 0; i < elements.length; i++) {
             for (int j = 0; j < elements[0].length; j++) {
-                if (i + j == elements.length - 1) {
+                if (i + j == minRowsCol - 1) {
                     diagonal[i] = elements[i][j];
                 }
             }
