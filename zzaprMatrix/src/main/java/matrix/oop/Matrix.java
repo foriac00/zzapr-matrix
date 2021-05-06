@@ -77,6 +77,11 @@ public class Matrix {
     int getIndexOfLastColumn(){
         return elements[0].length - 1;
     }
+    public void setTheElements(int value, int i, int j){
+        if(i < elements.length && j < elements[0].length){
+            elements[i][j] = value;
+        }
+    }
 
     public void swapDiagonals(Matrix m) {
         int[] secondaryDiagAnotherMatrix = m.getSecondaryDiagonal();

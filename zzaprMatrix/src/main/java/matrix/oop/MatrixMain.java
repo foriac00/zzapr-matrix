@@ -17,6 +17,7 @@ import matrix.oop.files.TextFiles;
 public class MatrixMain {
 
     public static void main(String[] args) throws URISyntaxException {
+        
         //comment from bazantm
         Scanner enter = new Scanner(System.in);
 
@@ -56,6 +57,11 @@ public class MatrixMain {
 
         TextFiles.saveMatrix(matrixA, "matrixA-after.txt");
         TextFiles.saveMatrix(matrixB, "matrixB-after.txt");
+                
+        //Read from the text file
+        Matrix mTF = TextFiles.readMatrix("matrixA-after.txt");
+        System.out.println("This is the matrix of the file text: ");
+        System.out.println(mTF);
 
     }
 }

@@ -5,6 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -14,20 +16,16 @@ import javafx.stage.Stage;
  */
 public class MatrixMainFX extends Application {
     
+    private TextArea textArea;
+    
     @Override
     public void start(Stage primaryStage) {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
+
+        primaryStage.setTitle("Matrix");
+        BorderPane root = new BorderPane();
         
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
+        textArea = new TextArea();
+        
         
         Scene scene = new Scene(root, 300, 250);
         

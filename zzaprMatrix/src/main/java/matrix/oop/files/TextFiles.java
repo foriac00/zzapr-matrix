@@ -49,17 +49,20 @@ public class TextFiles {
             //String matrixName = br.readLine();
             
             String line = br.readLine(); // how many rows and columns
-            String[] separatedLine = line.split(";");
+            String[] separatedLine = line.split(SEPARATOR);
             int rows = Integer.parseInt(separatedLine[0]);
             int columns = Integer.parseInt(separatedLine[1]);
             
-            Matrix matrix = new Matrix(rows, columns);
+            m = new Matrix(rows, columns);
             
             
             for (int i = 0; i < rows; i++) {
                 line = br.readLine();
-                m = matrix;
-                separatedLine = line.split(";");
+                
+                separatedLine = line.split(SEPARATOR);
+                for (int j = 0; j < m.getNumberOfColums(); j++) {
+                    m.setTheElements(Integer.parseInt(separatedLine[j].trim()), i, j);
+                }
             }
             
             br.close();
