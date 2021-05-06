@@ -55,8 +55,10 @@ public class TextFiles {
             
             Matrix matrix = new Matrix(rows, columns);
             
+            
             for (int i = 0; i < rows; i++) {
                 line = br.readLine();
+                m = matrix;
                 separatedLine = line.split(";");
             }
             
