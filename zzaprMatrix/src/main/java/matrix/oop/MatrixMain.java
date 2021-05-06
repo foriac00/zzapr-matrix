@@ -44,6 +44,7 @@ public class MatrixMain {
 //        System.out.println("Principal Diagonal: " + Arrays.toString(matrixA.getPrincipalDiagonal()));
         TextFiles.saveMatrix(matrixA, "matrixA-before.txt");
 
+
         Matrix matrixB = new Matrix("Matrix B", rowB, colB);
         matrixB.generateRandomElements(-10, 10);
         matrixB.getSecondaryDiagonal();
