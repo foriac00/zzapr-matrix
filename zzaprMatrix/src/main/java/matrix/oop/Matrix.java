@@ -8,7 +8,12 @@ public class Matrix {
     private String name;
     private int[][] elements; // field for matrix elements
 
-    Matrix(String name, int numberOfRows, int numberOfColumns) {
+    public Matrix(int numberOfRows, int numberOfColumns) {
+        elements = new int[numberOfRows][numberOfColumns];
+        
+    }
+    
+    public Matrix(String name, int numberOfRows, int numberOfColumns) {
         if (name != null) {
             this.name = name;
         } else {
@@ -52,6 +57,8 @@ public class Matrix {
 //            }
 //        }
     }
+    
+    
 
     public int[] getSecondaryDiagonal() {
         int minRowsCol = getMinofRowsColumns();
@@ -103,6 +110,14 @@ public class Matrix {
 
         return false;
     }
+    
+    public int getNumberOfRows() {
+        return elements.length;
+    }
+    
+    public int getNumberOfColums() {
+        return elements[0].length;
+    }
 
     @Override
     public String toString() {
@@ -116,6 +131,10 @@ public class Matrix {
             text += "\n";
         }
         return text;
+    }
+
+    public int getElements(int i, int j) {
+        return elements[i][j];
     }
 
 }

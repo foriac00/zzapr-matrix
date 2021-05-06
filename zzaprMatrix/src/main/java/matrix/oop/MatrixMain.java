@@ -6,11 +6,9 @@
 package matrix.oop;
 
 import java.net.URISyntaxException;
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 import matrix.oop.files.TextFiles;
-import static matrix.practice.MatrixPractice.SwapDiagonals;
 
 /**
  *
