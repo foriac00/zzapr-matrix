@@ -9,6 +9,7 @@ import java.net.URISyntaxException;
 import java.util.Random;
 import java.util.Scanner;
 import matrix.oop.files.TextFiles;
+import matrix.oop.gui.MatrixMainFX;
 
 /**
  *
@@ -58,6 +59,8 @@ public class MatrixMain {
         TextFiles.saveMatrix(matrixA, "matrixA-after.txt");
         TextFiles.saveMatrix(matrixB, "matrixB-after.txt");
                 
+        
+
         //Read from the text file
         Matrix mTF = TextFiles.readMatrix("matrixA-after.txt");
         System.out.println("This is the matrix of the file text: ");

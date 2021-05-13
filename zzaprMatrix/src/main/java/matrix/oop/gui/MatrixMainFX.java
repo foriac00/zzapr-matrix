@@ -20,34 +20,41 @@ import matrix.oop.MatrixMain;
  */
 public class MatrixMainFX extends Application {
     
-    private TextArea textArea;
+    private TextArea textArea, textArea2;
     
     @Override
     public void start(Stage primaryStage) {
         
 
-    Group root = new Group();
+                BorderPane root = new BorderPane();
 		
-		Scene scene = new Scene( root, 300, 300 );
-		
-		primaryStage.setTitle("Matrix");
-		
-		primaryStage.setScene( scene );
-		
-		
-		Button boton = new Button("Show");
-		boton.setDefaultButton(true);
-		
-		boton.setPrefSize(100, 50);
-		
-		boton.setLayoutX(105);
-		boton.setLayoutY(110);
+                Matrix matrixA = new Matrix(6,2);
+                matrixA.generateRandomElements(-10, 10);
                 
+                Matrix matrixB = new Matrix(6,2);
+                matrixB.generateRandomElements(-10, 10);
+                
+                String show = "MatrixA:\n" + matrixA.toString() + "\n";
+                show = show + "MatrixB:\n" + matrixB.toString() + "\n";
+                   
+                textArea = new TextArea();
+                textArea.setEditable(false);
+                textArea.appendText(show);
 		
-		root.getChildren().add(boton);
-		
-		//Para mostrar la visible, semejante al setVisible(true)
-		primaryStage.show();		
+                matrixA.swapDiagonals(matrixB);
+                
+                String showSwapped = "MatrixA Swapped:\n" + matrixA.toString() + "\n";
+                showSwapped = showSwapped + "MatrixB Swapped:\n" + matrixB.toString();
+                
+                textArea2 = new TextArea();
+                textArea2.setEditable(false);
+                textArea.appendText(showSwapped);
+                root.setRight(textArea2);
+                
+                Scene scene = new Scene(root);
+		primaryStage.setTitle("Matrix");
+		primaryStage.setScene(scene);
+                primaryStage.show();
       
     }
     /**
