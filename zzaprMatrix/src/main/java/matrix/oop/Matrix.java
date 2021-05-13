@@ -128,7 +128,7 @@ public class Matrix {
     public String toString() {
         String text = "";
 
-        text += this.name + "\n";
+        //text += this.name + "\n";
         for (int i = 0; i < elements.length; i++) {
             for (int j = 0; j < elements[i].length; j++) {
                 text += String.format("%6d", elements[i][j]);
